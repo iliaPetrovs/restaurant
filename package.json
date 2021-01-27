@@ -1,0 +1,21 @@
+{
+  "name": "day5",
+  "version": "1.0.0",
+  "main": "Restaurant.js",
+  "scripts": {
+    "test": "jest",
+    "test:report": "jest --coverage=true"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "handlebars": "^4.7.6",
+    "jest": "^26.6.3",
+    "sequelize": "^6.4.0",
+    "sqlite3": "^5.0.1"
+  },
+  "description": ""
+}
