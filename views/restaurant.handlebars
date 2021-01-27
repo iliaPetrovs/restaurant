@@ -1,2 +1,16 @@
-<h2>We here</h2>
-{{restaurant}}
+<section class="menu_main">
+<h2>{{restaurant.name}}</h2>
+    {{#each menus}}
+        <article class="menu_container">
+            <h3>{{this.title}}</h3>
+            <dl>
+                {{#each this.items}}
+                    <div>
+                        <dt>{{this.name}}</dt>
+                        <dd>£{{this.price}}</dd>
+                    </div>
+                {{/each}}
+            </dl>
+        </article>
+    {{/each}}
+</section>

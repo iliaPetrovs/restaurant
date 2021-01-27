@@ -6,6 +6,7 @@ const {
 } = require("@handlebars/allow-prototype-access");
 const { Restaurant } = require("./Restaurant");
 const { Menu } = require("./Menu");
+const { MenuItem } = require("./MenuItem");
 const { loop } = require("./Loop");
 
 const app = express();
@@ -23,30 +24,38 @@ app.use(express.static("public"));
 app.get("/", async (req, res) => {
 	const restaurants = await Restaurant.findAll({
 		include: [{ model: Menu, as: "menus" }],
-		next: true,
+		nest: true,
 	});
 	res.render("home", { restaurants });
 });
 
+// app.get("/restaurants/:id", async (req, res) => {
+// 	const restaurant = await Restaurant.findAll({
+// 		where: { id: req.params.id },
+// 		include: {
+// 			model: Menu,
+// 			as: "menus",
+// 			include: [{ model: MenuItem, as: "items" }],
+// 		},
+// 		nest: true,
+// 	});
+// 	console.log(`i am here ${restaurant.menu.length} and also ${req.params.id}`);
+// 	res.render("restaurant", restaurant);
+// });
+
 app.get("/restaurants/:id", async (req, res) => {
-	const restaurant = await Restaurant.findAll({
-		where: {
-			id: req.params.id,
-		},
-		include: {
-			model: Menu,
-			as: "menus",
-			include: [{ model: MenuItem, as: "items" }],
-		},
-		next: true,
+	const restaurant = await Restaurant.findByPk(req.params.id);
+	console.log(`REQ PARAMS IS HERE: ${req.params.id}`);
+	const menus = await restaurant.getMenus({
+		include: [{ model: MenuItem, as: "items" }],
+		nest: true,
 	});
-	console.log(`i am here ${restaurant}`);
-	res.render("restaurant", restaurant);
+	res.render("restaurant", { restaurant, menus });
 });
 
-// app.get("/about", (req, res) => {
-// 	res.render("about", { date: new Date(), author: "Ilia Petrovs" });
-// });
+app.get("/about", (req, res) => {
+	res.render("about");
+});
 
 app.listen(port, () => {
 	console.log(`Server listening on port ${port}`);

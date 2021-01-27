@@ -19,7 +19,7 @@ Menu.init(
 );
 
 Menu.hasMany(MenuItem, { as: "items", foreignKey: "menu_id" });
-MenuItem.belongsTo(Menu, { as: "owner", foreignKey: "menu_id" });
+MenuItem.belongsTo(Menu, { foreignKey: "menu_id" });
 
 module.exports = { Menu };
 

@@ -18,9 +18,7 @@ MenuItem.init(
 	}
 );
 
-module.exports = {
-	MenuItem,
-};
+module.exports = { MenuItem };
 
 // local testing - remove when using Jest
 // (async () => {
