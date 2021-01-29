@@ -1,6 +1,7 @@
 const { Restaurant } = require("./Restaurant");
 const { Menu } = require("./Menu");
 const { MenuItem } = require("./MenuItem");
+const { Review } = require("./Review");
 const { sequelize, DataTypes, Model } = require("./sequelize_index");
 
 const fs = require("fs");
@@ -34,6 +35,24 @@ async function loop() {
 				menuCounter++;
 			}
 		}
+		fs.readFile("./review.json", async (err, data) => {
+			if (err) return console.error(err);
+			const reviews = await JSON.parse(data);
+			// console.log(reviews);
+			// await sequelize.sync({ force: true }); // recreate db
+			for (let i = 0; i < reviews.length; i++) {
+				const review = reviews[i];
+				// console.log(review.stars);
+				await Review.create({
+					stars: review.stars,
+					title: review.title,
+					body: review.body,
+					restaurant_id: review.restaurant_id,
+					avatar: review.avatar,
+					username: review.username,
+				});
+			}
+		});
 	});
 }
 

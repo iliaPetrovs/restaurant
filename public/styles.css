@@ -142,6 +142,7 @@ div h2 {
 	margin-left: 50px;
 	border-radius: 5%;
 	margin: 20px;
+	/* position: relative; */
 }
 
 .card:hover {
@@ -265,4 +266,188 @@ ul a:hover {
 	height: 100%;
 	width: 100%;
 	justify-content: space-between;
+}
+
+.add_new {
+	height: 100%;
+	width: 100%;
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+/* Button */
+.button {
+	display: inline-block;
+	margin: 0;
+	padding: 0.75rem 1rem;
+	border: 0;
+	border-radius: 0.317rem;
+	background-color: #aaa;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+	width: 85px;
+	height: 50px;
+}
+
+.button:hover {
+	opacity: 0.85;
+}
+
+.button:active {
+	box-shadow: inset 0 3px 4px hsla(0, 0%, 0%, 0.2);
+}
+
+.button:focus {
+	outline: thin dotted #444;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+
+.button_primary {
+	background-color: rgb(194, 113, 76);
+}
+
+.button_secondary {
+	background-color: rgb(194, 113, 76);
+	width: 65px;
+}
+
+.button-icon {
+	display: inline-block;
+	position: relative;
+	top: -0.1em;
+	vertical-align: middle;
+	margin-right: 0.317rem;
+}
+
+.buttons {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	/* position: absolute; */
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	/* border: 1px solid red; */
+}
+
+section label {
+	color: white;
+}
+
+/* Edit Menu */
+.edit_menu {
+	display: flex;
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid red;
+	flex-direction: column;
+	font-size: 1.5em;
+}
+
+.individual_menu {
+	height: 50%;
+	width: 50%;
+	/* border: 1px solid green; */
+	margin: 0 auto;
+}
+
+.edit_title {
+	width: 60%;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+
+input {
+	margin: auto;
+}
+
+.header_home {
+	display: flex;
+	flex-direction: column;
+}
+
+.img_cover {
+	height: 81px;
+	position: relative;
+}
+
+.stars {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* background-color: grey; */
+	background-color: rgb(194, 113, 76);
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	/* display: none; */
+	visibility: hidden;
+	opacity: 0;
+	/* transition: all 0.5s ease-in-out; */
+	transition: visibility 0s, opacity 0.25s ease-in-out;
+}
+
+.restaurant-img:hover + .stars,
+.stars:hover {
+	/* transition: all 0.2s ease-in-out; */
+	visibility: visible;
+	opacity: 0.8;
+	/* display: block; */
+}
+
+.review_wrapper {
+	width: 95%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.review_container {
+	width: 400px;
+	height: 500px;
+	background-color: rgb(212, 212, 212);
+	margin: 10px;
+	border: black solid 1px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 10px 10px 5px #3f3f3f;
+}
+
+.review_title {
+	text-align: center;
+}
+
+.review_body {
+	height: 300px;
+	overflow: scroll;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid rgb(143, 143, 143);
+	box-shadow: 10px 10px 5px #808080;
+}
+
+.review_stars {
+	text-align: center;
+	cursor: pointer;
+}
+
+.review_author {
+	display: flex;
+	align-items: center;
+	/* border: 1px solid red; */
+	height: 50px;
+	justify-content: flex-end;
 }

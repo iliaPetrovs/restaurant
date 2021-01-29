@@ -1,0 +1,18 @@
+
+<div class="review_wrapper">
+{{#each reviews}}
+    <div class="review_container">
+        <div class="review_stars">{{this.printStars}}</div>
+        <div class="review_title">
+            <h4>{{this.title}}</h4>
+        </div>
+        <div class="review_body">
+            <p>{{this.body}}</p>
+        </div>
+        <div class="review_author">
+            <i>-{{this.username}}</i>
+            <img src={{this.avatar}} alt="avatar">
+        </div>
+    </div>
+{{/each}}
+</div>

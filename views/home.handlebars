@@ -2,7 +2,16 @@
 <section class="restaurants">
 	{{#each restaurants}}
 	<div class="card">
-  		<img class="restaurant-img" src={{this.image}} style="width:250px">
+		<div class="header_home">
+			<div class="img_cover">
+  				<img class="restaurant-img" src={{this.image}} style="width:250px">
+				<a href="/restaurants/reviews/{{this.id}}" class="stars">★★★★☆</a>
+			</div>
+		  <div class="buttons">
+				<a class="button" href="/restaurants/{{this.id}}/delete">Delete</a>
+				<a class="button button_secondary" href="/restaurants/{{this.id}}/edit">Edit</a>
+			</div>
+		</div>
   		<div class="container">
    			<h4><a href="/restaurants/{{this.id}}">{{this.name}}</a> </h4>
 			<div class="menus">
@@ -14,7 +23,15 @@
 				<p>Edit</p>
 				<p>Delete</p>
 			</div> --}}
+			
   		</div>
+
 	</div>
 	{{/each}}
+	<div class="card">
+		<div class="container">
+			<h3>Add new restaurant</h3>
+			<a class="add_new" href="/add">Add</a>
+		</div>
+	</div>
 </section>
