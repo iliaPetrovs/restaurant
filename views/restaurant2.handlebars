@@ -2,7 +2,7 @@
 <section class="restaurants">
 	{{#each restaurants}}
 	<div class="card">
-  		<img class="restaurant-img" src={{this.image}} style="width:250px">
+  		<img class="restaurant-img" alt="{{this.name}} restaurant" src={{this.image}} style="width:250px">
   		<div class="container">
    			<h4><a href="/restaurants/{{this.id}}">{{this.name}}</a> </h4>
 			<div class="menus">

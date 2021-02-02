@@ -1,8 +1,7 @@
 <section class="edit_menu">
     <form action="/restaurants/edit/{{restaurant.id}}" method="POST">
-    <div class="edit_title">
-        <label for="name">Restaurant Name</label>
-        <input type="text" name="name" value="{{restaurant.name}}">
+    <div contenteditable="true" class="edit_title">
+        <p class="menu_item">{{restaurant.name}}</p>
     </div>
     {{#each menus}}
         {{!-- <article class="menu_container"> --}}
@@ -10,13 +9,24 @@
     <label for="menu_title">Menu Title</label>
     <input type="text" name="menu_title" value="{{this.title}}"> <br>
         {{#each this.items}}
-        <label for="item_name">Item Name</label>
-        <input type="text" name="item_name" value="{{this.name}}"> <br>
-        <label for="price">Item Price</label>
-        <input type="number" name="price" value="{{this.price}}"> <br>
+        <p contenteditable="true" class="menu_item">{{this.name}}</p>
+        <p contenteditable="true" class="item_price">{{this.price}}</p>
+        <br>
         {{/each}}
             </div>
     {{/each}}
     <button class="edit_submit button button_primary">Submit</button>
     </form>
 </section>
+<script>
+
+</script>
+
+<!--
+            <label for="name">Restaurant Name</label>
+        <input type="text" name="name" value="{{restaurant.name}}">
+            <label for="item_name">Item Name</label>
+        <input type="text" name="item_name" value="{{this.name}}">
+        <label for="price">Item Price</label>
+        <input type="number" name="price" value="{{this.price}}"> <br>
+    -->

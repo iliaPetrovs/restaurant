@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
-        <script src="/script.js"></script>
+        <title>Restaurant Explorer</title>
     </head>
     <body>
         <div class="big-wrap">
@@ -18,14 +18,44 @@
          <div>
              <nav>
                  <ul>
-                     <a href="/">HOME</a> 
-                     <a href="/about">ABOUT</a>
+                        <a href="/">
+                        <li>
+                            HOME
+                        </li>
+                        </a> 
+                        <a href="/about">
+                        <li>
+                            ABOUT
+                        </li>
+                        </a>
                  </ul>
              </nav>
          </div>
         <div class="wrap">
+            <div style="color: white;">Number of page loads:
+                <span id="CounterVisitor"></span>
+            </div>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0" nonce="FCW9jKpj"></script>
         {{{body}}}
         </div>
         </div>
+        <script>
+        var n = localStorage.getItem('on_load_counter');
+
+        if (n === null) {
+            n = 0;
+        }
+        n++;
+
+        localStorage.setItem("on_load_counter", n);
+
+        nums = n.toString().split('').map(Number);
+        document.getElementById('CounterVisitor').innerHTML = '';
+        for (var i of nums) {
+            document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item" style="color: white;">' + i + '</span>';
+        }
+
+    </script>
     </body>
 </html>

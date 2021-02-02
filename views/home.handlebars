@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <section class="restaurants">
+	<div class="card new_card">
+		<div class="container">
+			<div class="add_container">
+				<a class="add_new" href="/add" aria-label="Add new restaurant to database">
+					<p class="add_header">Add new restaurant</p>
+					<img class="add_icon" src="plus-sign.svg" alt="Add new restaurant">
+				</a>
+			</div>
+		</div>
+	</div>
 	{{#each restaurants}}
 	<div class="card">
 		<div class="header_home">
 			<div class="img_cover">
-  				<img class="restaurant-img" src={{this.image}} style="width:250px">
-				<a href="/restaurants/reviews/{{this.id}}" class="stars">★★★★☆</a>
+  				<img class="restaurant-img" src={{this.image}} alt="{{this.name}} restaurant" style="width:250px">
+				<a href="/restaurants/reviews/{{this.id}}" aria-label="Open reviews for {{this.name}}" class="stars">★★★★☆</a>
 			</div>
 		  <div class="buttons">
-				<a class="button" href="/restaurants/{{this.id}}/delete">Delete</a>
-				<a class="button button_secondary" href="/restaurants/{{this.id}}/edit">Edit</a>
+				<a class="button" aria-label="Delete restaurant from database" href="/restaurants/{{this.id}}/delete">Delete</a>
+				<a class="button button_secondary" aria-label="Edit restaurant name, menus and prices for {{this.name}}" href="/restaurants/{{this.id}}/edit">Edit</a>
 			</div>
 		</div>
   		<div class="container">
-   			<h4><a href="/restaurants/{{this.id}}">{{this.name}}</a> </h4>
+   			<h2><a aria-label="Open menu for {{this.name}}" href="/restaurants/{{this.id}}">{{this.name}}</a> </h2>
 			<div class="menus">
 			{{#each menus}}
 				<p>{{this.title}}</p>
@@ -28,10 +38,5 @@
 
 	</div>
 	{{/each}}
-	<div class="card">
-		<div class="container">
-			<h3>Add new restaurant</h3>
-			<a class="add_new" href="/add">Add</a>
-		</div>
-	</div>
+
 </section>
